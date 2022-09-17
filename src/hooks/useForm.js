@@ -30,6 +30,7 @@ export const useForm = (initialState = {}, formValidations = {}) => {
 
   const reset = () => {
     setFormState({ ...initialState });
+    setErrors({});
   };
 
   const createValidators = () => {

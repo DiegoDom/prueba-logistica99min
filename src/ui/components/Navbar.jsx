@@ -1,8 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import { startLogout } from '../../store/auth';
 
 export const Navbar = () => {
+  const { displayName } = useSelector(state => state.auth);
+
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -27,12 +29,15 @@ export const Navbar = () => {
       </button>
       <div className='collapse navbar-collapse' id='navbarNav'>
         <ul className='navbar-nav'></ul>
-        <button
-          className='btn btn-sm navbar-text ml-auto text-danger'
-          onClick={onLogout}
-        >
-          Cerrar sesión
-        </button>
+        <div className="d-flex align-items-center justify-content-center ml-auto">
+          <small className='text-muted'>{displayName}</small>
+          <button
+            className="btn btn-sm text-danger"
+            onClick={onLogout}
+          >
+            Cerrar sesión
+          </button>
+        </div>
       </div>
     </nav>
   );
