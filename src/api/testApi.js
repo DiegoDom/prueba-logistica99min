@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-import { getEnvironments } from '../helpers';
+/* import { getEnvironments } from '../helpers';
 
 const {
   VITE_TESTAPI_USERNAME,
   VITE_TESTAPI_PASSWORD
-} = getEnvironments();
+} = getEnvironments(); */
 
 const testApi = axios.create({
   baseURL: 'https://prueba-tecninca-backend-qndxoltwga-uc.a.run.app',
@@ -13,8 +13,8 @@ const testApi = axios.create({
     'Content-Type': 'application/json'
   },
   auth: {
-    username: VITE_TESTAPI_USERNAME,
-    password: VITE_TESTAPI_PASSWORD
+    username: import.meta.env.VITE_TESTAPI_USERNAME,
+    password: import.meta.env.VITE_TESTAPI_PASSWORD
   }
 });
 
