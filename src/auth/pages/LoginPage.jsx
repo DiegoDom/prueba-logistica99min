@@ -20,8 +20,8 @@ const formValidations = {
 };
 
 const formData = {
-  email: '',
-  password: ''
+  email: 'ddominguez@test99.com',
+  password: 'qwerty'
 };
 
 export const LoginPage = () => {

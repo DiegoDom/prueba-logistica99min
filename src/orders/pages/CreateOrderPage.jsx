@@ -1,15 +1,15 @@
 import { Link as RouterLink } from 'react-router-dom';
+import { OrderForm } from '../components';
 import { OrdersLayout } from '../layout/OrdersLayout';
-import { OrdersTable } from '../components';
 
-export const DashboardPage = () => {
+export const CreateOrderPage = () => {
   return (
     <OrdersLayout>
       <div className="d-flex align-items-center justify-content-between">
-        <h1>Ordenes</h1>
-        <RouterLink to='/orders/create' className="btn btn-sm btn-primary">Crear orden</RouterLink>
+        <h1>Crear orden</h1>
+        <RouterLink to='/' className="btn btn-sm btn-outline-danger">Cancelar</RouterLink>
       </div>
-      <OrdersTable />
+      <OrderForm />
     </OrdersLayout>
   );
 };
