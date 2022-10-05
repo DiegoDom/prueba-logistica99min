@@ -15,12 +15,13 @@ export const startCreateNewOrder = (body) => {
   return async (dispatch) => {
     dispatch(setSaving(true));
     try {
-      /* const { data } = await testApi.post('/orders/create', body);
-      console.log({ data }); */
+      const { data } = await testApi.post('/orders/create', body);
+      console.log({ data });
 
-      console.log({ body });
+      /* console.log({ body }); */
 
-      var myHeaders = new Headers();
+      // ! NO USAR VAR
+      /* var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
       myHeaders.append('Authorization', 'Basic ' + btoa(VITE_TESTAPI_USERNAME + ":" + VITE_TESTAPI_PASSWORD));
 
@@ -30,13 +31,17 @@ export const startCreateNewOrder = (body) => {
         body: JSON.stringify(body)
       });
 
-      const data = await resp.json();
+      const data = await resp.json(); */
+
+      if (!data.Order) {
+        Swal.fire('Lo sentimos', data.Message || 'Ocurrio un error al intentar guardar la orden', 'warning');
+      }
 
       console.log({ data });
 
     } catch (error) {
-      console.log(error);
       Swal.fire('Lo sentimos', 'Ocurrio un error al intentar guardar la orden', 'error');
+
     }
   };
 };

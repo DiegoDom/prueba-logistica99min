@@ -149,7 +149,7 @@ export const OrderForm = () => {
 
     setProducts(current => [...current, {
       name,
-      Weight: weight
+      Weight: Number(weight)
     }]);
 
     reset();
